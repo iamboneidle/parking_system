@@ -1,0 +1,37 @@
+.icon-button {
+    
+}
+
+.icon-button.left, 
+.icon-button.right {
+    --size: 40px;
+    min-width: var(--size);
+    height: var(--size);
+}
+
+.icon-button.left,
+.icon-button.left.disabled {
+    background: url('../../../../../static/icons/arrow_left.svg')
+    center / 100% 100% no-repeat;
+}
+
+.icon-button.right,
+.icon-button.right.disabled {
+    background: url('../../../../../static/icons/arrow_right.svg')
+    center / 100% 100% no-repeat;
+}
+
+.icon-button.left:hover {
+    background: url('../../../../../static/icons/arrow_left_active.svg')
+    center / 100% 100% no-repeat;
+}
+
+.icon-button.right:hover {
+    background: url('../../../../../static/icons/arrow_right_active.svg')
+    center / 100% 100% no-repeat;
+}
+
+.icon-button.left.disabled,
+.icon-button.right.disabled {
+    pointer-events: none;
+}

@@ -1,0 +1,21 @@
+.MyParkingLot {
+    display: inline-block;
+    background: rgb(158, 45, 45);
+    outline: 0;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    padding: 9px 22px;
+    font-size: 22px;
+    height: 100px;
+    width: 50px;
+    font-weight: 400;
+    border-radius: 5px;
+    color: rgb(158, 45, 45);
+    margin: auto;
+}
+
+.MyParkingLot:hover {
+    transform: scale(1.1);
+    transition: ease 0.2s;
+}

@@ -1,0 +1,11 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    gap: 10px;
+    width: 80%;
+    min-width: 830px;
+}
+
+.centering {
+    border: 1px solid blue;
+}
