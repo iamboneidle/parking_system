@@ -17,9 +17,7 @@ export default function Home() {
   return (
     <Grid container spacing={1}>
         <Grid item xs={12} align='center'>
-            <TextContent>
-                
-            </TextContent>
+            <TextContent />
         </Grid>
         <Grid item xs={12} align='center'>
             <Typography>
