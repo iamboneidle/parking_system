@@ -10,13 +10,12 @@
     border: none;
     box-shadow: none;
     cursor: pointer;
-    padding: 9px 22px;
-    font-size: 16px;
-    height: 20px;
+    font-size: 14px;
+    height: 26px;
     border-radius: 5px;
     color: black;
-    justify-content: center;
-
+    text-align: center;
+    margin-top: 5px;
 }
 
 .modal_filling_submit {
@@ -24,19 +23,20 @@
     border: none;
     box-shadow: none;
     cursor: pointer;
-    padding: 9px 22px;
-    font-size: 16px;
-    height: 20px;
+    font-size: 14px;
+    height: 26px;
     border-radius: 5px;
     color: black;
-    justify-content: center;
-
+    text-align: center;
+    margin-top: 5px;
 }
 
 .modal_filling_input {
-    width: 83%;
-    background: white;
-    border-radius: 5px;
-    margin-top: 5px;
-    height: 20px;
+    margin-top: 10px;
+    width: 80%;
+    height: 40px;
+    border-radius: 7px;
+    outline: 0;
+    box-shadow: none;
+    font-size: 20px;
 }
