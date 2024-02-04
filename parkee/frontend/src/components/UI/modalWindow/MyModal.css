@@ -1,0 +1,17 @@
+.my_modal_visible {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid black;
+    position: relative;
+}
+
+.my_modal_invisible {
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid black;
+    display: none;
+}

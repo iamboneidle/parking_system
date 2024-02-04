@@ -2,20 +2,11 @@ import React from 'react';
 import './MyParkingLot.css';
 
 
-export default function MyParkingLot(isAvailable) {
-    // if (isAvailable == true) {
-    //     return (
-    //         <div className='parking_lot'>
-    //             <button className='available'>
+export default function MyParkingLot({setVisible}) {
 
-    //             </button>
-    //         </div>
-    //     )
-    // } else {
         return (
-            <button className='MyParkingLot'>
+            <button className='MyParkingLot' onClick={() => setVisible(true)}>
             
             </button>
         )
-    // }
 }
