@@ -20,7 +20,7 @@ export default function TextContent() {
         </Title>
         <div className='text-content__grid'>
             <p className='p-descr'>
-                Some words about our parking
+                Some words about our parking system
             </p>
         </div>
         <MyCarousel>
