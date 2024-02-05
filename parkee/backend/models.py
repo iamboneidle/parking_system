@@ -4,9 +4,9 @@ from django.db import models
 class Parking(models.Model):
     parking_lot_id = models.AutoField(primary_key=True)
     is_available = models.BooleanField(default=True)
-    start_reservation = models.DateTimeField(null=True)
-    stop_reservation = models.DateTimeField(null=True)
-    user_id = models.IntegerField(null=True)
+    start_reservation = models.DateTimeField(null=True, default=None, blank=True)
+    stop_reservation = models.DateTimeField(null=True, default=None, blank=True)
+    user_id = models.IntegerField(null=True, default=None, blank=True)
 
 
 class User(models.Model):
