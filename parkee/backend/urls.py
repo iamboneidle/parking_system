@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import main
+from .views import *
 
 
 urlpatterns = [
-    path('check', main)
+    path('get-parking-grid', getParkingGrid),
+    path('get-users', getUsers)
 ]
