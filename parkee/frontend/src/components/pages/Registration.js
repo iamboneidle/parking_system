@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import MyRegistration from './UI/registrationCard/MyRegistration';
+import MyRegistration from '../registrationCard/MyRegistration';
 
 
 export default function Registration() {

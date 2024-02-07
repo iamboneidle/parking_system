@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Grid, Typography } from '@material-ui/core';
-import ParkingGrid from './parkingGrid/parkingGrid';
-import MyModal from './UI/modalWindow/MyModal';
-import MyModalFilling from './UI/modalWindow/modalFilling/MyModalFilling';
+import ParkingGrid from '../parkingGrid/parkingGrid';
+import MyModal from '../UI/modalWindow/MyModal';
+import MyModalFilling from '../UI/modalWindow/modalFilling/MyModalFilling';
 
 
 export default function Parking() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, ButtonGroup, Grid, Typography } from '@material-ui/core';
-import MyDefaultButton from './UI/buttons/defaultButton/MyDefaultButton';
-import MyCarousel from './UI/carousel/MyCarousel';
+import MyDefaultButton from '../UI/buttons/defaultButton/MyDefaultButton';
+import MyCarousel from '../UI/carousel/MyCarousel';
 import {
     BrowserRouter as Router,
     Switch,
@@ -9,8 +9,8 @@ import {
     Link,
     Redirect
 } from "react-router-dom";
-import Title from './UI/titles/Title';
-import TextContent from './UI/textContent/TextContent';
+import Title from '../UI/titles/Title';
+import TextContent from '../UI/textContent/TextContent';
 
 
 export default function Home() {
