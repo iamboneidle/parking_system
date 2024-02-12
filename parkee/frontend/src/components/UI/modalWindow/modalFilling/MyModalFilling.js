@@ -13,7 +13,7 @@ export default function MyModalFilling({setVisible}) {
                     submit
                 </button>
                 <button className='modal_filling_exit' onClick={() => setVisible(false)}>
-                exit
+                    exit
                 </button>
             </div>
         </div>
