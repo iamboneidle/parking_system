@@ -4,5 +4,6 @@ from .views import *
 
 urlpatterns = [
     path('get-parking-grid', getParkingGrid),
-    path('get-users', getUsers)
+    path('get-users', getUsers),
+    path('post-user', postUser),
 ]

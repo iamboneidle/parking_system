@@ -3,6 +3,7 @@ import { Form, Input, Button, Row, Col, Card } from 'antd';
 import { UserOutlined, LockOutlined, PhoneOutlined, GlobalOutlined } from '@ant-design/icons';
 import { Helmet } from "react-helmet";
 
+
 export default function MyRegistration({ props }) {
     const [user, setUser] = useState({
         name: '',
@@ -13,6 +14,49 @@ export default function MyRegistration({ props }) {
         password: '',
     })
 
+    function getCSRFToken() {
+        const cookieValue = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('csrftoken='))
+            .split('=')[1];
+        return cookieValue;
+    }
+
+    const submit = (e) => {
+        e.preventDefault();
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCSRFToken(),
+            },
+            body: JSON.stringify({
+                car_reg_number: user.car_reg_number,
+                phone_number: user.phone_number,
+                email: user.email,
+                name: user.name,
+                surname: user.surname,
+                password: user.password,
+            }),
+        };
+        fetch("/backend/post-user", requestOptions)
+        .then((response) => {
+            return response.json()
+          })
+          .then((data) => {
+            console.log('data', data)
+          })
+          .catch(function (error) {
+            console.log(error);
+        });
+    }
+
+    const handle = (e) => {
+        const newUser = { ...user };
+        newUser[e.target.id] = e.target.value;
+        setUser(newUser);
+    }
+
     return (
         <div className='reg-wrapper'>
             <Row justify="center" align="middle" style={{ minHeight: '100vh', width: '150vh'}}>
@@ -22,9 +66,11 @@ export default function MyRegistration({ props }) {
                             layout="vertical"
                         >
                             <Form.Item
-                                name='Name'
+                                name='name'
                                 label='Name'
-                                onMetaChange={(e) => handle(e)} id='name' value={user.name}
+                                onChange={(e) => handle(e)} 
+                                id='name' 
+                                value={user.name}
                                 rules={[{
                                     required: true,
                                     message: 'Please input your name!',
@@ -36,9 +82,11 @@ export default function MyRegistration({ props }) {
                                 />
                             </Form.Item>
                             <Form.Item
-                                name='Surname'
+                                name='surname'
                                 label='Surname'
-                                onMetaChange={(e) => handle(e)} id='surname' value={user.surname}
+                                onChange={(e) => handle(e)} 
+                                id='surname' 
+                                value={user.surname}
                                 rules={[{
                                     required: true,
                                     message: 'Please input your Surname!',
@@ -50,9 +98,11 @@ export default function MyRegistration({ props }) {
                                 />
                             </Form.Item>
                             <Form.Item
-                                name='Email'
+                                name='email'
                                 label='Email'
-                                onMetaChange={(e) => handle(e)} id='email' value={user.email}
+                                onChange={(e) => handle(e)} 
+                                id='email' 
+                                value={user.email}
                                 rules={[{
                                     required: true,
                                     message: 'Please input your Email!',
@@ -64,9 +114,11 @@ export default function MyRegistration({ props }) {
                                 />
                             </Form.Item>
                             <Form.Item
-                                name='Phone number'
+                                name='phone_number'
                                 label='Phone number'
-                                onMetaChange={(e) => handle(e)} id='phone_num' value={user.phone_number}
+                                onChange={(e) => handle(e)} 
+                                id='phone_num' 
+                                value={user.phone_number}
                                 rules={[{
                                     required: true,
                                     message: 'Please input your Phone number!',
@@ -78,9 +130,11 @@ export default function MyRegistration({ props }) {
                                 />
                             </Form.Item>
                             <Form.Item
-                                name='Car registration number'
+                                name='car_reg_number'
                                 label='Car registration number'
-                                onMetaChange={(e) => handle(e)} id='car_reg' value={user.car_reg_number}
+                                onChange={(e) => handle(e)} 
+                                id='car_reg' 
+                                value={user.car_reg_number}
                                 rules={[{
                                     required: true,
                                     message: 'Please input your Car registration number!',
@@ -95,13 +149,20 @@ export default function MyRegistration({ props }) {
                                 label="Password"
                                 name="password"
                                 rules={[{ required: true, message: 'Please input your password!' }]}
+                                onChange={(e) => handle(e)} 
+                                id='password'
+                                value={user.password}
                             >
                                 <Input.Password 
                                     placeholder="Your password"
                                 />
                             </Form.Item>
                             <Form.Item wrapperCol={{ offset: 10, span: 16 }}>
-                            <Button type="primary" htmlType="submit">
+                            <Button 
+                                type="primary"
+                                htmlType="submit"
+                                onClick={(e) => submit(e)}
+                            >
                                 Submit
                             </Button>
                             </Form.Item>

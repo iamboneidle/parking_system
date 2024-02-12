@@ -2,6 +2,8 @@
     "cSpell.words": [
         "adminadmin",
         "antd",
+        "corsheaders",
+        "csrftoken",
         "Parkee"
     ]
 }

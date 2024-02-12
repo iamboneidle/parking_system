@@ -12,5 +12,5 @@ class ParkingSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('user_id', 'car_reg_number', 'phone_number',
+        fields = ('car_reg_number', 'phone_number',
                    'email', 'name', 'surname', 'password')
