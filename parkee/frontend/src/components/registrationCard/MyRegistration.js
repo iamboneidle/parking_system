@@ -14,6 +14,24 @@ export default function MyRegistration({ props }) {
         password: '',
     })
 
+    const passwordValidator = (rules, value) => {
+        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$/;
+        if (value && !value.match(passwordRegex)) {
+            return Promise.reject('Password should contain at least 6 characters, one lowercase and uppercase character and at least one digit')
+        } else {
+            return Promise.resolve()
+        }
+    }
+
+    const emailValidator = (rules, value) => {
+        const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if (value && !value.match(emailRegex)) {
+            return Promise.reject('Email is not valid')
+        } else {
+            return Promise.resolve()
+        }
+    }
+
     function getCSRFToken() {
         const cookieValue = document.cookie
             .split('; ')
@@ -45,6 +63,7 @@ export default function MyRegistration({ props }) {
           })
           .then((data) => {
             console.log('data', data)
+            alert(data['error'])
           })
           .catch(function (error) {
             console.log(error);
@@ -104,9 +123,11 @@ export default function MyRegistration({ props }) {
                                 id='email' 
                                 value={user.email}
                                 rules={[{
-                                    required: true,
-                                    message: 'Please input your Email!',
-                                }]}
+                                        required: true,
+                                        message: 'Please input your Email!',
+                                    },
+                                    { validator: emailValidator },
+                                ]}
                             >
                                 <Input
                                     placeholder="Your email"
@@ -136,9 +157,10 @@ export default function MyRegistration({ props }) {
                                 id='car_reg' 
                                 value={user.car_reg_number}
                                 rules={[{
-                                    required: true,
-                                    message: 'Please input your Car registration number!',
-                                }]}
+                                        required: true,
+                                        message: 'Please input your Car registration number!',
+                                    },
+                                ]}
                             >
                                 <Input
                                     placeholder="Your car registration number"
@@ -148,7 +170,12 @@ export default function MyRegistration({ props }) {
                             <Form.Item
                                 label="Password"
                                 name="password"
-                                rules={[{ required: true, message: 'Please input your password!' }]}
+                                rules={[{
+                                        required: true, 
+                                        message: 'Please input your password!' 
+                                    },
+                                    { validator: passwordValidator },
+                                ]}
                                 onChange={(e) => handle(e)} 
                                 id='password'
                                 value={user.password}
