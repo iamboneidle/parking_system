@@ -63,7 +63,9 @@ export default function MyRegistration({ props }) {
           })
           .then((data) => {
             console.log('data', data)
-            alert(data['error'])
+            if (data['error']) {
+                alert(data['error'])
+            }
           })
           .catch(function (error) {
             console.log(error);

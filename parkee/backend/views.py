@@ -25,8 +25,9 @@ def getUsers(request):
 @api_view(["POST"])
 def postUser(request):
     data = request.data
+    data.update({'password': str(hash(data.get('password')))})
+    # print(data)
     serializer = UserSerializer(data=data)
-
     if not User.objects.filter(email=data.get('email')).exists():
         if serializer.is_valid():
             serializer.save()
