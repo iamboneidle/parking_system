@@ -18,4 +18,4 @@ class User(models.Model):
     email = models.CharField(default='', max_length=50)
     name = models.CharField(default='', max_length=50)
     surname = models.CharField(default='', max_length=100)
-    password = models.CharField(default='', max_length=50)
+    password = models.CharField(default='', max_length=1000)

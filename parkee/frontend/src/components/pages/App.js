@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import Home from "./Home";
 import Registration from "./Registration";
 import Parking from "./Parking";
+import Login from "./Login";
 import {
     BrowserRouter,
     Switch,
@@ -24,6 +25,7 @@ export default function App() {
                         <Route path='/home' component={Home} />
                         <Route path='/registration' component={Registration} />
                         <Route path='/parking' component={Parking} />
+                        <Route path='/login' component={Login} />
                     </Switch>
                 </BrowserRouter>
             </div>

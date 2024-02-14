@@ -17,18 +17,18 @@ export default function MyRegistration({ props }) {
     const passwordValidator = (rules, value) => {
         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$/;
         if (value && !value.match(passwordRegex)) {
-            return Promise.reject('Password should contain at least 6 characters, one lowercase and uppercase character and at least one digit')
+            return Promise.reject('Password should contain at least 6 characters, one lowercase and uppercase character and at least one digit');
         } else {
-            return Promise.resolve()
+            return Promise.resolve();
         }
     }
 
     const emailValidator = (rules, value) => {
         const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
         if (value && !value.match(emailRegex)) {
-            return Promise.reject('Email is not valid')
+            return Promise.reject('Email is not valid');
         } else {
-            return Promise.resolve()
+            return Promise.resolve();
         }
     }
 
@@ -59,12 +59,12 @@ export default function MyRegistration({ props }) {
         };
         fetch("/backend/post-user", requestOptions)
         .then((response) => {
-            return response.json()
+            return response.json();
           })
           .then((data) => {
-            console.log('data', data)
+            console.log('data', data);
             if (data['error']) {
-                alert(data['error'])
+                alert(data['error']);
             }
           })
           .catch(function (error) {
@@ -81,6 +81,7 @@ export default function MyRegistration({ props }) {
     return (
         <div className='reg-wrapper'>
             <Row justify="center" align="middle" style={{ minHeight: '100vh', width: '150vh'}}>
+                <Helmet><title>Registration</title></Helmet>
                 <Col span={8}>
                     <Card title='Registration' style={{borderRadius: '10px'}}>
                         <Form
