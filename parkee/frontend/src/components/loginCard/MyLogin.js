@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, Row, Col, Card } from 'antd';
-import { UserOutlined, LockOutlined, PhoneOutlined, GlobalOutlined } from '@ant-design/icons';
+import { UserOutlined } from '@ant-design/icons';
 import { Helmet } from "react-helmet";
 
 
@@ -74,19 +74,19 @@ export default function MyLogin() {
 
     return (
         <div>
-            <Row justify="center" align="middle" style={{ minHeight: '100vh', width: '150vh'}}>
+            <Row justify="center" align="middle" style={{ minHeight: '100vh', width: '150vh' }}>
                 <Helmet><title>Login</title></Helmet>
                 <Col span={8}>
-                    <Card title='Login' style={{borderRadius: '10px'}}>
+                    <Card title='Login' style={{ borderRadius: '10px' }}>
                         <Form
                             layout="vertical"
                         >
                             <Form.Item
                                 name='email'
                                 label='Email'
-                                onChange={(e) => handle(e)}
+                                onChange={ (e) => handle(e) }
                                 id='email'
-                                value={user.value}
+                                value={ user.value }
                                 rules={[{
                                     required: true,
                                     message: 'Please input your Email',
@@ -96,7 +96,7 @@ export default function MyLogin() {
                             >
                                 <Input
                                     placeholder='Your email'
-                                    prefix={ <UserOutlined className='site-form-item-icon' />}
+                                    prefix={ <UserOutlined className='site-form-item-icon' /> }
                                 />
                             </Form.Item>
                             <Form.Item
@@ -108,9 +108,9 @@ export default function MyLogin() {
                                     },
                                     { validator: passwordValidator },
                                 ]}
-                                onChange={(e) => handle(e)} 
+                                onChange={ (e) => handle(e) } 
                                 id='password'
-                                value={user.password}
+                                value={ user.password }
                             >
                                 <Input.Password 
                                     placeholder="Your password"
@@ -120,7 +120,7 @@ export default function MyLogin() {
                                 <Button 
                                     type="primary"
                                     htmlType="submit"
-                                    onClick={(e) => submit(e)}
+                                    onClick={ (e) => submit(e) }
                                 >
                                     Login
                                 </Button>

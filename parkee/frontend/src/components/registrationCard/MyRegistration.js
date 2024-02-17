@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, Row, Col, Card } from 'antd';
-import { UserOutlined, LockOutlined, PhoneOutlined, GlobalOutlined } from '@ant-design/icons';
+import { UserOutlined } from '@ant-design/icons';
 import { Helmet } from "react-helmet";
 
 
@@ -80,19 +80,19 @@ export default function MyRegistration({ props }) {
 
     return (
         <div className='reg-wrapper'>
-            <Row justify="center" align="middle" style={{ minHeight: '100vh', width: '150vh'}}>
+            <Row justify="center" align="middle" style={{ minHeight: '100vh', width: '150vh' }}>
                 <Helmet><title>Registration</title></Helmet>
                 <Col span={8}>
-                    <Card title='Registration' style={{borderRadius: '10px'}}>
+                    <Card title='Registration' style={{ borderRadius: '10px' }}>
                         <Form
                             layout="vertical"
                         >
                             <Form.Item
                                 name='name'
                                 label='Name'
-                                onChange={(e) => handle(e)} 
+                                onChange={ (e) => handle(e) } 
                                 id='name' 
-                                value={user.name}
+                                value={ user.name }
                                 rules={[{
                                     required: true,
                                     message: 'Please input your name!',
@@ -100,13 +100,13 @@ export default function MyRegistration({ props }) {
                             >
                                 <Input
                                     placeholder="Your name"
-                                    prefix={<UserOutlined className="site-form-item-icon" />}
+                                    prefix={ <UserOutlined className="site-form-item-icon" /> }
                                 />
                             </Form.Item>
                             <Form.Item
                                 name='surname'
                                 label='Surname'
-                                onChange={(e) => handle(e)} 
+                                onChange={ (e) => handle(e) } 
                                 id='surname' 
                                 value={user.surname}
                                 rules={[{
@@ -116,13 +116,13 @@ export default function MyRegistration({ props }) {
                             >
                                 <Input
                                     placeholder="Your surname"
-                                    prefix={<UserOutlined className="site-form-item-icon" />}
+                                    prefix={ <UserOutlined className="site-form-item-icon" /> }
                                 />
                             </Form.Item>
                             <Form.Item
                                 name='email'
                                 label='Email'
-                                onChange={(e) => handle(e)} 
+                                onChange={ (e) => handle(e) } 
                                 id='email' 
                                 value={user.email}
                                 rules={[{
@@ -134,15 +134,15 @@ export default function MyRegistration({ props }) {
                             >
                                 <Input
                                     placeholder="Your email"
-                                    prefix={<UserOutlined className="site-form-item-icon" />}
+                                    prefix={ <UserOutlined className="site-form-item-icon" /> }
                                 />
                             </Form.Item>
                             <Form.Item
                                 name='phone_number'
                                 label='Phone number'
-                                onChange={(e) => handle(e)} 
+                                onChange={ (e) => handle(e) } 
                                 id='phone_num' 
-                                value={user.phone_number}
+                                value={ user.phone_number }
                                 rules={[{
                                     required: true,
                                     message: 'Please input your Phone number!',
@@ -150,15 +150,15 @@ export default function MyRegistration({ props }) {
                             >
                                 <Input
                                     placeholder="Your phone number"
-                                    prefix={<UserOutlined className="site-form-item-icon" />}
+                                    prefix={ <UserOutlined className="site-form-item-icon" /> }
                                 />
                             </Form.Item>
                             <Form.Item
                                 name='car_reg_number'
                                 label='Car registration number'
-                                onChange={(e) => handle(e)} 
+                                onChange={ (e) => handle(e) } 
                                 id='car_reg' 
-                                value={user.car_reg_number}
+                                value={ user.car_reg_number  }
                                 rules={[{
                                         required: true,
                                         message: 'Please input your Car registration number!',
@@ -167,7 +167,7 @@ export default function MyRegistration({ props }) {
                             >
                                 <Input
                                     placeholder="Your car registration number"
-                                    prefix={<UserOutlined className="site-form-item-icon" />}
+                                    prefix={ <UserOutlined className="site-form-item-icon" /> }
                                 />
                             </Form.Item>
                             <Form.Item
@@ -181,7 +181,7 @@ export default function MyRegistration({ props }) {
                                 ]}
                                 onChange={(e) => handle(e)} 
                                 id='password'
-                                value={user.password}
+                                value={ user.password }
                             >
                                 <Input.Password 
                                     placeholder="Your password"
@@ -191,7 +191,7 @@ export default function MyRegistration({ props }) {
                             <Button 
                                 type="primary"
                                 htmlType="submit"
-                                onClick={(e) => submit(e)}
+                                onClick={ (e) => submit(e) }
                             >
                                 Submit
                             </Button>
