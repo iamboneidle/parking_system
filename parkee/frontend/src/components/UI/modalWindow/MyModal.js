@@ -47,14 +47,14 @@ export default function MyModal({ children, open, handleOk, handleCancel, id }) 
     return (
         <Modal
             title="Reserve a lot"
-            open={open}
-            onOk={handleOk}
-            onCancel={handleCancel}
+            open={ open }
+            onOk={ handleOk }
+            onCancel={ handleCancel }
             okButtonProps={{
-                onClick: () => {handleOkPressed(); handleCancel()}
+                onClick: () => { handleOkPressed(); handleCancel() }
             }}
             cancelButtonProps={{
-                onClick: () => {handleCancel()}
+                onClick: () => { handleCancel() }
             }}
         >
             <Form
