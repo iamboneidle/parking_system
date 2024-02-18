@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { render } from 'react-dom';
 import Home from "./Home";
 import Registration from "./Registration";
@@ -12,6 +12,12 @@ import {
 
 
 export default function App() {
+    const[isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        console.log(isLoggedIn)
+    }, [isLoggedIn])
+
     return (
         <div>
             <div className="black-strip">
@@ -20,10 +26,16 @@ export default function App() {
             <div className="all">
                 <BrowserRouter>
                     <Switch>
-                        <Route path='/home' component={ Home } />
-                        <Route path='/registration' component={ Registration } />
+                        <Route path='/home'>
+                            <Home isLoggedIn={ isLoggedIn }/>
+                        </Route>
+                        <Route path='/registration' >
+                            <Registration setIsLoggedIn={ setIsLoggedIn }/>
+                        </Route>
+                        <Route path='/login' >
+                            <Login setIsLoggedIn={ setIsLoggedIn }/>
+                        </Route>
                         <Route path='/parking' component={ Parking } />
-                        <Route path='/login' component={ Login } />
                     </Switch>
                 </BrowserRouter>
             </div>

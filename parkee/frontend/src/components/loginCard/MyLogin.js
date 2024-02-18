@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
-import { Form, Input, Button, Row, Col, Card } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import React, { useState, useEffect } from 'react';
+import { Form, Input, Button, Row, Col, Card, Checkbox } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { Helmet } from "react-helmet";
+import { useHistory } from "react-router-dom";
 
 
-export default function MyLogin() {
+export default function MyLogin({ setIsLoggedIn }) {
+    const [authOk, setAuthOk] = useState(false)
+    const history = useHistory();
     const [user, setUser] = useState({
         email: '',
         password: '',
@@ -54,11 +57,12 @@ export default function MyLogin() {
             return response.json();
         })
         .then((data) => {
-            console.log('data', data);
             if (data['error']) {
                 alert(data['error']);
             } else {
-                alert('ok');
+                setAuthOk(true);
+                setIsLoggedIn(true);
+                history.replace('/parking');
             }
         })
         .catch(function (error) {
@@ -73,62 +77,71 @@ export default function MyLogin() {
     }
 
     return (
-        <div>
-            <Row justify="center" align="middle" style={{ minHeight: '100vh', width: '150vh' }}>
-                <Helmet><title>Login</title></Helmet>
-                <Col span={8}>
-                    <Card title='Login' style={{ borderRadius: '10px' }}>
-                        <Form
-                            layout="vertical"
+        <Row justify="center" align="middle" style={{ minHeight: '100vh', width: '150vh' }}>
+            <Helmet><title>Login</title></Helmet>
+            <Col span={8}>
+                <Card title='Login' style={{ borderRadius: '10px' }}>
+                    <Form
+                        layout="vertical"
+                    >
+                        <Form.Item
+                            name='email'
+                            label='Email'
+                            onChange={ (e) => handle(e) }
+                            id='email'
+                            value={ user.value }
+                            rules={[{
+                                required: true,
+                                message: 'Please input your Email',
+                            },
+                            { validator: emailValidator },
+                            ]}
                         >
-                            <Form.Item
-                                name='email'
-                                label='Email'
-                                onChange={ (e) => handle(e) }
-                                id='email'
-                                value={ user.value }
-                                rules={[{
-                                    required: true,
-                                    message: 'Please input your Email',
+                            <Input
+                                placeholder='Your email'
+                                prefix={ <UserOutlined className='site-form-item-icon' /> }
+                            />
+                        </Form.Item>
+                        <Form.Item
+                            label="Password"
+                            name="password"
+                            rules={[{
+                                    required: true, 
+                                    message: 'Please input your password!' 
                                 },
-                                { validator: emailValidator },
-                                ]}
+                                { validator: passwordValidator },
+                            ]}
+                            onChange={ (e) => handle(e) } 
+                            id='password'
+                            value={ user.password }
+                        >
+                            <Input.Password 
+                                placeholder="Your password"
+                                prefix={ <LockOutlined className="site-form-item-icon" /> }
+                            />
+                        </Form.Item>
+                        <Form.Item name='remember'>
+                            <Checkbox>Remember me</Checkbox>
+                        </Form.Item>
+                        <Form.Item 
+                            wrapperCol={{ 
+                                offset: 10,
+                                span: 16 
+                            }}>
+                            <Button 
+                                type="primary"
+                                htmlType="submit"
+                                onClick={ (e) => submit(e) }
                             >
-                                <Input
-                                    placeholder='Your email'
-                                    prefix={ <UserOutlined className='site-form-item-icon' /> }
-                                />
-                            </Form.Item>
-                            <Form.Item
-                                label="Password"
-                                name="password"
-                                rules={[{
-                                        required: true, 
-                                        message: 'Please input your password!' 
-                                    },
-                                    { validator: passwordValidator },
-                                ]}
-                                onChange={ (e) => handle(e) } 
-                                id='password'
-                                value={ user.password }
-                            >
-                                <Input.Password 
-                                    placeholder="Your password"
-                                />
-                            </Form.Item>
-                            <Form.Item wrapperCol={{ offset: 10, span: 16 }}>
-                                <Button 
-                                    type="primary"
-                                    htmlType="submit"
-                                    onClick={ (e) => submit(e) }
-                                >
-                                    Login
-                                </Button>
-                            </Form.Item>
-                        </Form>
-                    </Card>
-                </Col>
-            </Row>
-        </div>
+                                Log in
+                            </Button>
+                        </Form.Item>
+                        <Form.Item>
+                            Or <a href="/registration">register now!</a>
+                        </Form.Item>
+                    </Form>
+                </Card>
+            </Col>
+        </Row>
     )
 }

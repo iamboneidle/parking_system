@@ -2,9 +2,9 @@ import React from 'react';
 import MyLogin from '../loginCard/MyLogin';
 
 
-export default function Login({ props }) {
+export default function Login({ setIsLoggedIn }) {
 
     return (
-        <MyLogin />
+        <MyLogin setIsLoggedIn={ setIsLoggedIn } />
     )
 }

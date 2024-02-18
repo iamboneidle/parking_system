@@ -1,6 +1,5 @@
 import React from 'react';
 import './TextContent.css';
-import Title from '../titles/Title';
 import MyCarousel from '../carousel/MyCarousel';
 import photo_1 from '../../../../static/images/parkingImages/photo_1.png';
 import photo_2 from '../../../../static/images/parkingImages/photo_2.png';
@@ -11,13 +10,9 @@ import photo_6 from '../../../../static/images/parkingImages/photo_6.png';
 import photo_7 from '../../../../static/images/parkingImages/photo_7.png';
 
 
-
 export default function TextContent() {
   return (
     <div className='text-content'>
-        <Title>
-            Title
-        </Title>
         <div className='text-content__grid'>
             <p className='p-descr'>
                 Some words about our parking system

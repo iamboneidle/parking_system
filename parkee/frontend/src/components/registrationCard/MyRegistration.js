@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Form, Input, Button, Row, Col, Card } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { Helmet } from "react-helmet";
+import { useHistory } from "react-router-dom";
 
 
-export default function MyRegistration({ props }) {
+export default function MyRegistration({ setIsLoggedIn }) {
     const [user, setUser] = useState({
         name: '',
         surname: '',
@@ -13,6 +14,8 @@ export default function MyRegistration({ props }) {
         car_reg_number: '',
         password: '',
     })
+
+    const history = useHistory();
 
     const passwordValidator = (rules, value) => {
         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$/;
@@ -65,6 +68,9 @@ export default function MyRegistration({ props }) {
             console.log('data', data);
             if (data['error']) {
                 alert(data['error']);
+            } else {
+                setIsLoggedIn(true);
+                history.replace('/home')
             }
           })
           .catch(function (error) {

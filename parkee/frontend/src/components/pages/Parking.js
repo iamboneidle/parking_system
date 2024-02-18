@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { Grid, Typography } from '@material-ui/core';
-import ParkingGrid from '../parkingGrid/parkingGrid';
+import ParkingGrid from '../parkingGrid/ParkingGrid';
+import MyDefaultButton from '../UI/buttons/defaultButton/MyDefaultButton';
 import MyModal from '../UI/modalWindow/MyModal';
+import { Link } from "react-router-dom";
 
 
 export default function Parking() {
@@ -35,12 +37,14 @@ export default function Parking() {
                 />
             </Grid>
             <Grid item xs={12} align='center'>
-                <Typography>
-                    This is the parking page of parkee project
-                </Typography>
+                <ParkingGrid setVisible={ showModal } handleLotId={ handleLotId }/>
             </Grid>
             <Grid item xs={12} align='center'>
-                <ParkingGrid setVisible={ showModal } handleLotId={ handleLotId }/>
+                <Link to='/home' >
+                    <MyDefaultButton>
+                        Go Home
+                    </MyDefaultButton>
+                </Link>
             </Grid>
         </Grid>
     )

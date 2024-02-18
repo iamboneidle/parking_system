@@ -2,8 +2,8 @@ import React from 'react'
 import MyRegistration from '../registrationCard/MyRegistration';
 
 
-export default function Registration() {
+export default function Registration({ setIsLoggedIn }) {
     return (
-        <MyRegistration />
+        <MyRegistration setIsLoggedIn={ setIsLoggedIn } />
     )
 }
