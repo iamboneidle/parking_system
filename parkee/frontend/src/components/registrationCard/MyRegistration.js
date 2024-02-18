@@ -65,7 +65,7 @@ export default function MyRegistration({ setIsLoggedIn }) {
             return response.json();
           })
           .then((data) => {
-            console.log('data', data);
+            // console.log('data', data);
             if (data['error']) {
                 alert(data['error']);
             } else {

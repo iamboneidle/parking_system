@@ -6,5 +6,7 @@ urlpatterns = [
     path('get-parking-grid', getParkingGrid),
     path('get-users', getUsers),
     path('post-user', postUser),
-    path('login-user', loginUser)
+    path('login-user', loginUser),
+    path('reserve-lot', reserveParkingLot),
+    path('relieve-lot', relieveParkingLot),
 ]

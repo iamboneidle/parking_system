@@ -1,6 +1,6 @@
 .MyParkingLot {
     display: inline-block;
-    background: rgb(158, 45, 45);
+    /* background: rgb(158, 45, 45); */
     outline: 0;
     border: none;
     box-shadow: none;
@@ -13,6 +13,14 @@
     color: rgb(255, 255, 255);
     margin: auto;
     text-align: center;
+}
+
+.available {
+    background: rgb(41, 164, 28);
+}
+
+.unavailable {
+    background: rgb(158, 45, 45);
 }
 
 .MyParkingLot:hover {

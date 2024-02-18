@@ -14,9 +14,9 @@ import {
 export default function App() {
     const[isLoggedIn, setIsLoggedIn] = useState(false);
 
-    useEffect(() => {
-        console.log(isLoggedIn)
-    }, [isLoggedIn])
+    // useEffect(() => {
+    //     console.log(isLoggedIn)
+    // }, [isLoggedIn])
 
     return (
         <div>

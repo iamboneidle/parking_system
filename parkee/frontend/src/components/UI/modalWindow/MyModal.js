@@ -18,7 +18,29 @@ export default function MyModal({ children, open, handleOk, handleCancel, id }) 
         reserveInfo.time_start = time[0];
         reserveInfo.time_stop = time[1];
         reserveInfo.id = id;
-        console.log(reserveInfo)
+        // console.log(reserveInfo)
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCSRFToken(),
+            },
+            body: JSON.stringify({
+                email: reserveInfo.email,
+                phone_number: reserveInfo.phone_number,
+                id: reserveInfo.id,
+                time_start: reserveInfo.time_start,
+                time_stop: reserveInfo.time_stop,
+            }),
+        };
+        fetch("backend/reserve-lot", requestOptions)
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            alert(data['error']);
+        });
+        location.reload();
     }
 
     const handle = (e) => {
@@ -31,8 +53,16 @@ export default function MyModal({ children, open, handleOk, handleCancel, id }) 
         setTime(dateString);
     };
 
+    function getCSRFToken() {
+        const cookieValue = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('csrftoken='))
+            .split('=')[1];
+        return cookieValue;
+    }
+
     const onOk = (dateString) => {
-        console.log('onOk: ', dateString);
+        // console.log('onOk: ', dateString);
     };
 
     const emailValidator = (rules, value) => {
