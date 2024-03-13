@@ -4,7 +4,7 @@ import string, random
 
 class Parking(models.Model):
     parking_lot = models.AutoField(primary_key=True)
-    parking_lot_id = models.IntegerField(default = 0)
+    parking_lot_id = models.IntegerField(default=0)
     is_available = models.BooleanField(default=True)
     start_reservation = models.DateTimeField(null=True, default=None, blank=True)
     stop_reservation = models.DateTimeField(null=True, default=None, blank=True)
