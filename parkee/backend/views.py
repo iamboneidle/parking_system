@@ -6,7 +6,7 @@ from hashlib import sha256
 
 
 @api_view(['GET'])
-def getParkingGrid (request):
+def getParkingGrid(request):
     parking = Parking.objects.all()
     serializer = ParkingSerializer(parking, many=True)
     if not serializer.data:
